@@ -1,0 +1,30 @@
+version: 1
+default_environment: dev
+project_id: 694e575a-ab54-408a-ace7-1a5ed7615ee1
+environments:
+- name: dev
+- name: staging
+- name: prod
+plugins:
+  extractors:
+  - name: tap-rest-api-msdk
+    variant: widen
+    pip_url: tap-rest-api-msdk
+    config:
+      name: test_stream
+      api_url: https://data.pa.gov
+      streams:
+      - name: opoid_data
+        path: /resource/r2n4-n2i4.json
+        primary_keys:
+        - county_name
+        - fips_county_code
+        - state_fips_code
+        - county_fips_code
+        - county_code_number
+    select:
+    - '*.*'
+  loaders:
+  - name: target-jsonl
+    variant: andyh1203
+    pip_url: target-jsonl
