@@ -29,5 +29,5 @@ plugins:
     variant: andyh1203
     pip_url: target-jsonl
     config:
-      destination_path: s3://meltano-elt-output
+      destination_path: data/opoid_usage
       do_timestamp_file: true
