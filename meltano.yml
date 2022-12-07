@@ -31,7 +31,3 @@ plugins:
     config:
       destination_path: data/opoid_usage
       do_timestamp_file: true
-  files:
-  - name: files-airflow
-    variant: meltano
-    pip_url: git+https://github.com/meltano/files-airflow.git
